@@ -1,0 +1,24 @@
+.topKContent{
+    margin-left: 80px;
+    margin-top: 40px;
+    
+}
+.solidAnime {
+    max-width: 60px;
+    position: absolute; 
+    margin-top: 30px;
+  }
+  .title_CN{
+    font-size: 24px;
+  }
+  .title_EN{
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .topKCompany_CN{
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .topKCompany_EN{
+    font-size: 16px;
+  }

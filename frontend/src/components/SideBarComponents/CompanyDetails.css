@@ -1,0 +1,74 @@
+
+.contentContainer{
+    display: flex;
+    padding-top: 100px;
+    flex-direction: column;
+    padding-left: 70px;
+  }
+  .infoItem {
+    padding-bottom: 10px; 
+    
+  }
+
+  .companyName{
+    padding-top: 20px;
+    font-size: 32px;
+    color:white;
+    font-weight: 600;
+  }
+  .companyDataList{
+    display: flex;
+  
+  }
+  .companyName_EN{
+    font-size: 24px;
+    color:white;
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+.sector_CN,.city_CN{
+  font-size: 24px;
+  color:white;
+}
+.sector_EN,.city_EN{
+  font-size: 16px;
+  color:white;
+}
+.socialSecurity_CN, .annualRevenue_CN{
+  font-size: 13px;
+  color:white;
+}
+.socialSecurity_EN, .annualRevenue_EN{
+  font-size: 10px;
+  color:white;
+}
+.sector, .city, .socialSecurity, .annualRevenue{
+  margin-top: 19px;
+}
+
+.companyData{
+  display: flex;
+  flex-direction: row;
+}
+.companyDataList{
+  flex-direction: column;
+}
+.companyDataDetails{
+  width: 400px;
+  font-size: 24px;
+  color:white;
+  background-color: rgba(10, 99, 180, 0.36);
+  padding-left: 10px;
+  /* padding-right: 50px; */
+  padding-bottom: 10px;
+
+}
+.sectorData{
+  margin-top: 25px;
+}
+.cityData{
+  margin-top: 35px;
+}
+.socialSecurityData, .annualRevenueData{
+  margin-top: 35px;
+}

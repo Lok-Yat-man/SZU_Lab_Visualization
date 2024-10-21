@@ -1,0 +1,38 @@
+.sidebar {
+  color: white;
+    width: 50%;
+    /* padding: 20px; */
+    background-color: #0B1026;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h1 {
+    color:white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul {
+    color:white;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #ddd;
+  }
+  
+  .sidebar li:hover {
+    background-color: #ccc;
+  }
+  
+   .circleAnime {
+    max-width: 60px;
+    position: absolute;
+    top:130px;
+  }

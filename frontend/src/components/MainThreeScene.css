@@ -1,0 +1,19 @@
+.projectTitle{
+    width: 700px;
+    color: white;
+    bottom:80%;
+    /* left: 0%; */
+    position: absolute;
+    /* text-align: center; */
+}
+.hoverDivContent{
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+  /* background: black; */
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+    word-wrap: break-word;
+    text-align: left;
+    white-space: pre-wrap
+}

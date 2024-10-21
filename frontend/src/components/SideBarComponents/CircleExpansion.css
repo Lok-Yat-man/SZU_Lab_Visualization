@@ -1,0 +1,18 @@
+.map_spot_svg {
+    pointer-events: none;
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.map_spot_svg .circle {
+    transition: stroke 0.3s;
+}
+
+.map_spot_svg.active {
+    transform: scale(1.2);
+}
+
+.map_spot_svg.active .circle {
+    stroke: #ffffff;
+    stroke-width: 3px;
+}

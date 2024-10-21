@@ -1,0 +1,23 @@
+.overlayContainer {
+    padding-left: 5px;
+    width: 72%;
+    position: absolute;
+    color: white;
+    .title {
+        /* color:#F22744; */
+        font-weight: 500;
+       font-size: large;
+        padding-top: 15px;
+        /*  */
+        text-align: left;
+        /* background: #ffffff14; */
+        /* background: linear-gradient(270deg, rgba(13, 19, 185, 0) 0%, rgba(180, 181, 199, 0.3) 16.6667%, rgba(171, 173, 220, 0.3) 81.5315%, rgba(2, 3, 28, 0) 100%); */
+     }
+     .ornamentalLine{
+        /* background-color: #F22744; */
+        background-color: wheat;
+        height: 1px;
+        width: 24%;
+        margin-top: 5px;
+     }
+}

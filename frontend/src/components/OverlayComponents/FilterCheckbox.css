@@ -1,0 +1,29 @@
+
+  .submit-button {
+    margin-top: 16px;
+    background-color: #007bff;
+    color: white;
+  }
+  /* Custom checkbox styling */
+/* Custom checkbox styling */
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff; /* Blue stroke for unchecked state */
+    border-radius: 4px;
+    background-color: white; /* White fill for unchecked state */
+    cursor: pointer;
+    position: relative;
+    appearance: none; /* Remove default checkbox appearance */
+  }
+  
+  .checkbox-custom:checked {
+    background-color: #007bff; /* Blue fill when checked */
+    border-color: #007bff; /* Blue border when checked */
+  }
+  
+  /* Adjust label styling if needed */
+  .checkbox-label {
+    margin-bottom: 10px;
+  }
+  
