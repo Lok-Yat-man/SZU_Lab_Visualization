@@ -54,6 +54,10 @@ export function App() {
         // 可以在这里处理点击小球后的逻辑，比如更新状态、发送请求等
     }
 
+    const handleFilterChange = (data) => {
+        setCompanyData(data); // 更新公司数据
+    };
+
 
     return (
         <>

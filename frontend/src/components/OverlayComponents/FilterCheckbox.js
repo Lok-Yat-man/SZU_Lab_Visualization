@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {Button, Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 
-const FilterCheckbox = () => {
+const FilterCheckbox = ({onFilterChange}) => {
     const [selectedOptions, setSelectedOptions] = useState({
-        option1: false,
-        option2: false,
-        option3: false,
-        option4: false,
+        cate_first: false,
+        city: false,
+        social_security_staff_num: false,
+        reg_capital_amount_10k: false,
     });
 
     // Handle checkbox change
@@ -32,9 +32,10 @@ const FilterCheckbox = () => {
         selected.forEach(option => {
             params.append('selectedOptions', option);
         });
+        console.log(`Fetching with URL: http://127.0.0.1:5000/kmeans?${params.toString()}`);
 
         // Send the selected options to the Flask backend
-        fetch('http://127.0.0.1:5000/submit_options?${params.toString()}', {
+        fetch(`http://127.0.0.1:5000/kmeans?${params.toString()}`, {
             method: 'GET',
             // headers: {
             //     'Content-Type': 'application/json',
@@ -48,6 +49,7 @@ const FilterCheckbox = () => {
             })
             .then(data => {
                 console.log("Response from backend:", data);
+                onFilterChange(data);
             })
             .catch(error => {
                 console.error('Error sending data:', error);
@@ -60,9 +62,9 @@ const FilterCheckbox = () => {
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={selectedOptions.option1}
+                            checked={selectedOptions.cate_first}
                             onChange={handleCheckboxChange}
-                            name="option1"
+                            name="cate_first"
                             color="primary"
                         />
                     }
@@ -71,9 +73,9 @@ const FilterCheckbox = () => {
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={selectedOptions.option2}
+                            checked={selectedOptions.city}
                             onChange={handleCheckboxChange}
-                            name="option2"
+                            name="city"
                             color="primary"
                         />
                     }
@@ -82,9 +84,9 @@ const FilterCheckbox = () => {
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={selectedOptions.option3}
+                            checked={selectedOptions.social_security_staff_num}
                             onChange={handleCheckboxChange}
-                            name="option3"
+                            name="social_security_staff_num"
                             color="primary"
                         />
                     }
@@ -93,9 +95,9 @@ const FilterCheckbox = () => {
                 <FormControlLabel
                     control={
                         <Checkbox
-                            checked={selectedOptions.option4}
+                            checked={selectedOptions.reg_capital_amount_10k}
                             onChange={handleCheckboxChange}
-                            name="option4"
+                            name="reg_capital_amount_10k"
                             color="primary"
                         />
                     }
