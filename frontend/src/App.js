@@ -10,6 +10,7 @@ export function App() {
     const [companyData, setCompanyData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    // const [clusteringResults, setClusteringResults] = useState(null);
 
     useEffect(() => {
         fetch('http://127.0.0.1:5000/load_data', {
@@ -40,6 +41,37 @@ export function App() {
     if (error) {
         return <p>Error: {error.message}</p>;
     }
+
+    const handleSubmit = (selectedOptions) => {
+        // Encode the selected options as query parameters
+        const params = new URLSearchParams();
+        selectedOptions.forEach((option) => {
+            params.append(`selectedOption`, option);
+        })
+        console.log(`Fetching with URL: http://127.0.0.1:5000/kmeans?${params.toString()}`);
+
+
+        fetch(`http://127.0.0.1:5000/kmeans?${params.toString()}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Clustering results:", data);
+                setCompanyData(data); // 存储聚类结果
+            })
+            .catch(error => {
+                console.error(`Error fetching clustering results:`, error);
+            })
+    }
+
     const handleHoverItem = (itemId) => {
         console.log('--------hoverSelected', itemId)
         //曾经是hover item就直接显示数据，优势是非常交互友好
@@ -54,19 +86,22 @@ export function App() {
         // 可以在这里处理点击小球后的逻辑，比如更新状态、发送请求等
     }
 
-    const handleFilterChange = (data) => {
-        setCompanyData(data); // 更新公司数据
-    };
-
-
     return (
         <>
             {/* render Three.js Scene */}
-            <MainThreeScene onHoverItem={handleHoverItem} onClickItem={handleClickItem} companyData={companyData}/>
-            <Overlay/>
+            <MainThreeScene
+                onHoverItem={handleHoverItem}
+                onClickItem={handleClickItem}
+                companyData={companyData}
+                setCompanyData={setCompanyData}
+            />
+            <Overlay onSubmit={handleSubmit}/>
 
             {/* render React Component */}
-            <Sidebar selectedItem={selectedItem} companyData={companyData}/>
+            <Sidebar
+                selectedItem={selectedItem}
+                companyData={companyData}
+            />
         </>
     )
 }
