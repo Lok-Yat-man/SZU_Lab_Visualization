@@ -5,7 +5,8 @@ import {Bloom, EffectComposer, N8AO} from '@react-three/postprocessing'
 import * as THREE from 'three';
 import './MainThreeScene.css';
 
-const spheresColor = ["#69d2e7", "#f38630", "#d1313d", "#615375", "#a7dbd8", "#e0e4cc", "#fa6900", "#8eb2c5", "#615375"]
+// const spheresColor = ["#69d2e7", "#f38630", "#d1313d", "#615375", "#a7dbd8", "#e0e4cc", "#fa6900", "#8eb2c5", "#615375"]
+const spheresColor = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#00FFFF", "#FF00FF", "#FFFFFF"]
 // console.log('rawdata is', rawData[0])
 // let spheresData = rawData.map(item => ({
 //         x: parseFloat(item.pca1.toFixed(5)) * 100,
