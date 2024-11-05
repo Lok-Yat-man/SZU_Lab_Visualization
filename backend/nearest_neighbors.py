@@ -29,7 +29,7 @@ def find_nearest():
     for i in range(len(df)):
         distances, indices = nbrs.kneighbors([X[i]])
         # 获取相似企业的名称
-        similar_names = df.iloc[indices[0][1:]]['name'].tolist()  # 取第一个是自身
+        similar_names = df.iloc[indices[0][1:]]['cid'].tolist()  # 取第一个是自身
         similar_companies.append(similar_names)
 
     # 将相似企业信息添加到 DataFrame

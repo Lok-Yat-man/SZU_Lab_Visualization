@@ -1,10 +1,11 @@
 import json
 from collections import defaultdict
 
+from flask_cors import CORS
 import pandas as pd
 import pca
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
