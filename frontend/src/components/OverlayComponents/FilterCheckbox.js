@@ -24,34 +24,6 @@ const FilterCheckbox = ({onSubmit}) => {
         console.log("Selected Options:", selected);
 
         onSubmit(selected);
-
-        // Encode the selected options as query parameters
-        // const params = new URLSearchParams();
-        // selected.forEach(option => {
-        //     params.append('selectedOptions', option);
-        // });
-        // console.log(`Fetching with URL: http://127.0.0.1:5000/kmeans?${params.toString()}`);
-        //
-        // // Send the selected options to the Flask backend
-        // fetch(`http://127.0.0.1:5000/kmeans?${params.toString()}`, {
-        //     method: 'GET',
-        //     // headers: {
-        //     //     'Content-Type': 'application/json',
-        //     // },
-        // })
-        //     .then(response => {
-        //         if (!response.ok) {
-        //             throw new Error('Network response was not ok');
-        //         }
-        //         return response.json(); // 处理响应
-        //     })
-        //     .then(data => {
-        //         console.log("Response from backend:", data);
-        //         onFilterChange(data);
-        //     })
-        //     .catch(error => {
-        //         console.error('Error sending data:', error);
-        //     });
     };
 
     return (<form onSubmit={handleSubmit}>

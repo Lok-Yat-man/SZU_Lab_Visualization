@@ -7,7 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 
 def find_nearest():
-    with open('companyData.json', 'r') as file:
+    with open('data/companyData.json', 'r') as file:
         company_data = json.load(file)
 
     # 将数据转换为 DataFrame
@@ -20,7 +20,6 @@ def find_nearest():
     print("reg_capital_amount_10k shape:", df[['reg_capital_amount_10k']].values.shape)
 
     X = np.hstack((cata_first_encoded, df[['social_security_staff_num']].values, df[['reg_capital_amount_10k']].values))
-    # X = np.hstack((cata_first_encoded[:, np.newaxis], df[['reg_capital_amount_10k']].values))
 
     nbrs = NearestNeighbors(n_neighbors=4, algorithm='auto').fit(X)
 
@@ -50,7 +49,7 @@ def find_nearest():
 
     updated_company_data = convert_nan_to_none(updated_company_data)
 
-    with open('companyData.json', 'w', encoding='utf-8') as file:
+    with open('data/companyData.json', 'w', encoding='utf-8') as file:
         json.dump(updated_company_data, file, ensure_ascii=True, indent=4)
 
 
