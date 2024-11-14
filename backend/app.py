@@ -10,7 +10,7 @@ CORS(app)  # 允许所有源访问
 
 @app.route('/load_data', methods=['GET'])
 def get_company_data():
-    with open('backend/data/companyData.json', 'r') as file:
+    with open('data/companyData.json', 'r') as file:
         data = json.load(file)
     return jsonify(data)
 

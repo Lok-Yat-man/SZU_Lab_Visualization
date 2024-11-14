@@ -9,11 +9,11 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 
 def Kmeans_plus_plus(selected_options):
-    with open('backend/data/companyData.json', 'r') as file:
+    with open('data/companyData.json', 'r') as file:
         company_data = json.load(file)
 
     df = pd.DataFrame(company_data)
-    # print(df.dtypes)
+    # print(df.dtypes) 
 
     # 选择数值和字符特征
     numeric_features = df[selected_options].select_dtypes(include=['number'])
@@ -30,8 +30,6 @@ def Kmeans_plus_plus(selected_options):
         df_combined = pd.concat([numeric_features.reset_index(drop=True), df_encoded.reset_index(drop=True)], axis=1)
     else:
         df_combined = df_encoded
-
-    # 检查是否有有效特征
     if df_combined.empty:
         return jsonify({"error": "No valid features selected."}), 400
 
@@ -44,19 +42,16 @@ def Kmeans_plus_plus(selected_options):
     pca = PCA(n_components=dimension)
     pca_result = pca.fit_transform(scaled_features)
 
-    scaler = MinMaxScaler(feature_range=(-1, 1))
-    pca_result_scaled = scaler.fit_transform(pca_result)
     # 更新 company_data 中的 PCA 属性
     for i in range(len(company_data)):
-        company_data[i]['pca1'] = pca_result_scaled[i, 0]
-        company_data[i]['pca2'] = pca_result_scaled[i, 1] if dimension >= 2 else 0
-        company_data[i]['pca3'] = pca_result_scaled[i, 2] if dimension >= 3 else 0
+        company_data[i]['pca1'] = pca_result[i, 0]
+        company_data[i]['pca2'] = pca_result[i, 1] if dimension >= 2 else 0
+        company_data[i]['pca3'] = pca_result[i, 2] if dimension >= 3 else 0
 
     kmeans = KMeans(init="k-means++", n_clusters=7)
     kmeans.fit(scaled_features)
     labels = kmeans.labels_.tolist()
 
-    # 统计每个类的元素量
     cluster_count = defaultdict(int)
     for label in labels:
         cluster_count[label] += 1
