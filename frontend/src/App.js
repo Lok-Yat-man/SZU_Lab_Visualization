@@ -13,7 +13,7 @@ export function App() {
     // const [clusteringResults, setClusteringResults] = useState(null);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/load_data', {
+        fetch('http://172.31.238.174:5000/load_data', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -48,10 +48,10 @@ export function App() {
         selectedOptions.forEach((option) => {
             params.append(`selectedOption`, option);
         })
-        console.log(`Fetching with URL: http://127.0.0.1:5000/kmeans?${params.toString()}`);
+        console.log(`Fetching with URL: http://172.31.238.174:5000/kmeans?${params.toString()}`);
 
 
-        fetch(`http://127.0.0.1:5000/kmeans?${params.toString()}`, {
+        fetch(`http://172.31.238.174:5000/kmeans?${params.toString()}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

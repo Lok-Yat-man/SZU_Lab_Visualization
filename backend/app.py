@@ -8,6 +8,11 @@ app = Flask(__name__)
 CORS(app)  # 允许所有源访问
 
 
+@app.route('/')
+def print_hellp():
+    return 'Help Page nihao'
+
+
 @app.route('/load_data', methods=['GET'])
 def get_company_data():
     with open('data/companyData.json', 'r') as file:
