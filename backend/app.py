@@ -10,7 +10,7 @@ CORS(app)  # 允许所有源访问
 
 @app.route('/')
 def print_hellp():
-    return 'Help Page nihao'
+    return 'Help Page hello!'
 
 
 @app.route('/load_data', methods=['GET'])
@@ -30,4 +30,4 @@ def submit_options():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
