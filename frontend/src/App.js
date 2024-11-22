@@ -12,8 +12,11 @@ export function App() {
     const [error, setError] = useState(null);
     // const [clusteringResults, setClusteringResults] = useState(null);
 
+    let developmentURL = `http://127.0.0.1:5000`;
+    let productionURL = `http://172.31.238.174:5000`
+
     useEffect(() => {
-        fetch('http://172.31.238.174:5000/load_data', {
+        fetch(`${developmentURL}/load_data`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +54,7 @@ export function App() {
         console.log(`Fetching with URL: http://172.31.238.174:5000/kmeans?${params.toString()}`);
 
 
-        fetch(`http://172.31.238.174:5000/kmeans?${params.toString()}`, {
+        fetch(`${developmentURL}/kmeans?${params.toString()}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
