@@ -9,7 +9,7 @@ const Overlay = ({onSubmit}) => {
             {/* <div className='subtitle'>解释xxx图表</div> */}
 
             <div className='ornamentalLine'></div>
-            <div><FilterCheckbox onSubmit={onSubmit}/></div>
+            <div className='checkbox'><FilterCheckbox onSubmit={onSubmit}/></div>
         </div>
     )
 }

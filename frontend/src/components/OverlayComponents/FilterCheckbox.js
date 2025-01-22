@@ -27,7 +27,12 @@ const FilterCheckbox = ({onSubmit}) => {
     };
 
     return (<form onSubmit={handleSubmit}>
-        <FormGroup>
+        <FormGroup
+        sx={{
+            display: "flex",
+            flexDirection: "row", // Ensures vertical alignment
+            gap: 0.5, // Adds spacing between labels
+        }}>
             <FormControlLabel
                 control={<Checkbox
                     checked={selectedOptions.cate_first}
@@ -64,10 +69,10 @@ const FilterCheckbox = ({onSubmit}) => {
                 />}
                 label="年营业额"
             />
+             <Button type="submit" variant="contained" color="primary" sx={{marginTop: 0}}>
+            Submit </Button>
         </FormGroup>
-        <Button type="submit" variant="contained" color="primary" sx={{marginTop: 2}}>
-            Submit
-        </Button>
+       
     </form>);
 };
 

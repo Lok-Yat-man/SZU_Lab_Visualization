@@ -20,4 +20,10 @@
         width: 24%;
         margin-top: 5px;
      }
+
+     /*still need modification*/
+     .checkbox{
+      position: absolute;
+      padding-top: 80vh;
+     }
 }
